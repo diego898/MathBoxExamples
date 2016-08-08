@@ -361,25 +361,25 @@
 	// gui.add( this, "pointText" ).name("P = (x,y) = ");
 	
     //Adding point slider
-    var xGUISlider = gui.add( this, "traceX" );
-    var xSlider = xGUISlider.min(xMin).max(xMax).step(0.01).name("X position = ").onChange(
-        function(){
-            var zFunc = Parser.parse( functionText ).toJSFunction( ['x','y'] );
+    // var xGUISlider = gui.add( this, "traceX" );
+    // var xSlider = xGUISlider.min(xMin).max(xMax).step(0.01).name("X position = ").onChange(
+    //     function(){
+    //         var zFunc = Parser.parse( functionText ).toJSFunction( ['x','y'] );
 
-            traceZ = zFunc(traceX, traceY);
-            tracePointData.set("data", [ [traceX, traceZ, traceY] ] );
-        }
-    );
-    // var xSlider = gui.add( this, "traceX" ).min(xMin).max(xMax).step(0.01).name("X position = ").onChange( updateGraphFunc );
+    //         traceZ = zFunc(traceX, traceY);
+    //         tracePointData.set("data", [ [traceX, traceZ, traceY] ] );
+    //     }
+    // );
+    var xSlider = gui.add( this, "traceX" ).min(xMin).max(xMax).step(0.01).name("X position = ").onChange( updateGraphFunc );
     
-    var ySlider = gui.add( this, "traceY" ).min(yMin).max(yMax).step(0.01).name("Y position = ").onChange(
-        function(){
-            var zFunc = Parser.parse( functionText ).toJSFunction( ['x','y'] );
-            traceZ = zFunc(traceX, traceY);
-            tracePointData.set("data", [ [traceX, traceZ, traceY] ] );
-        }
-    );
-    // var ySlider = gui.add( this, "traceY" ).min(yMin).max(yMax).step(0.01).name("Y position = ").onChange( updateGraphFunc );
+    // var ySlider = gui.add( this, "traceY" ).min(yMin).max(yMax).step(0.01).name("Y position = ").onChange(
+    //     function(){
+    //         var zFunc = Parser.parse( functionText ).toJSFunction( ['x','y'] );
+    //         traceZ = zFunc(traceX, traceY);
+    //         tracePointData.set("data", [ [traceX, traceZ, traceY] ] );
+    //     }
+    // );
+    var ySlider = gui.add( this, "traceY" ).min(yMin).max(yMax).step(0.01).name("Y position = ").onChange( updateGraphFunc );
 	
 	var graphvisibleGUI = gui.add( this, "graphVisible" ).name("View graph").onChange(
 		function()
